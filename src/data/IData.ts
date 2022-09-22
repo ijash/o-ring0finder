@@ -18,6 +18,7 @@ export interface IGetValues {}
 export enum Standard {
   AS = "AS568",
   JIS = "JIS",
+  METRIC = "Common Metric",
 }
 export enum MeasurementUnit {
   MM = "mm",
