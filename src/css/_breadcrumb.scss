@@ -1,0 +1,12 @@
+.breadcrumb-item {
+    + .breadcrumb-item {
+        &::before {
+            font-family: "FontAwesome";
+            font-weight: 700;
+            content: "\f054" !important;
+        }
+    }
+}
+
+$breadcrumb-active-color: $black;
+$breadcrumb-divider-color: $gray-600;

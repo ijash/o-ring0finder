@@ -2,12 +2,12 @@ import { IDataObject, IData } from "./IData";
 
 const headers = [
   "Code",
-  "CS(mm)",
   "ID(mm)",
   "OD(mm)",
-  "CS(inch)",
+  "CS(mm)",
   "ID(inch)",
   "OD(inch)",
+  "CS(inch)",
 ];
 export class As568 implements IData {
   getValues: () => IDataObject[];
@@ -27,6 +27,7 @@ function stripHtml(html: any) {
 
 function dataMapper(d: string[]): IDataObject {
   return {
+    standard: "AS568",
     code: d[0],
     mmCs: parseFloat(d[4]),
     mmId: parseFloat(d[5]),

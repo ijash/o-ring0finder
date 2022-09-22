@@ -1,0 +1,9 @@
+@import "colors.scss";
+@import "fonts.scss";
+@import "borders.scss";
+@import "cards.scss";
+@import "breadcrumb.scss";
+
+@import "~bootstrap/scss/bootstrap.scss";
+// to override all, use custom.scss
+@import "custom.scss";

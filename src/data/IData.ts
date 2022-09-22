@@ -3,6 +3,7 @@ export interface IData {
   headers: string[];
 }
 export interface IDataObject {
+  standard: string;
   code: string;
   mmCs: number;
   mmId: number;
@@ -13,3 +14,24 @@ export interface IDataObject {
 }
 
 export interface IGetValues {}
+
+export enum Standard {
+  AS = "AS568",
+  JIS = "JIS",
+}
+export enum MeasurementUnit {
+  MM = "mm",
+  INCH = "inch",
+}
+
+export interface IDataFilter {
+  unit?: MeasurementUnit;
+  minId?: number;
+  maxId?: number;
+  minOd?: number;
+  maxOd?: number;
+  minCs?: number;
+  maxCs?: number;
+  code?: string;
+  standard?: Standard[];
+}
