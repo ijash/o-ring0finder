@@ -4,6 +4,7 @@ import { As568Data, JisData, MetricData } from "./data/values";
 import { TableComponent } from "./components/table";
 import { MeasurementUnit, IDataFilter } from "./data/IData";
 import oringSpec from "./assets/img/oring-spec.jpg";
+import { divWrapper } from "./components/wrapper/divWrapper";
 
 function App() {
   const as568 = As568Data;
@@ -23,7 +24,8 @@ function App() {
 
       <div className="input-group-sm mb-1">
         <div className="container row">
-          <div className="col">
+          {divWrapper(
+            "col",
             <div id="unitForm">
               <label className="form-label" htmlFor="measurementUnit">
                 Unit
@@ -43,6 +45,27 @@ function App() {
                 <option value={MeasurementUnit.INCH}>Imperial (Inch)</option>
               </select>
             </div>
+          )}
+          {divWrapper(
+            "col",
+            <div id="ringCodeForm">
+              <label className="form-label" htmlFor="ringCode">
+                Ring Code
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                name="Ring Code"
+                placeholder="Code"
+                id="ringCode"
+                onChange={(event) => {
+                  setFilterTerm({ ...filterTerm, code: event.target.value });
+                }}
+              />
+            </div>
+          )}
+          {divWrapper(
+            "col",
             <div id="minIdForm">
               <label className="form-label" htmlFor="IDMin">
                 Min ID
@@ -63,64 +86,9 @@ function App() {
                 }}
               />{" "}
             </div>
-            <div id="minCsForm">
-              <label className="form-label" htmlFor="CSMin">
-                Min CS
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                step="0.01"
-                min="0"
-                name="Min CS "
-                placeholder="Min CS"
-                id="CSMin"
-                onChange={(event) => {
-                  setFilterTerm({
-                    ...filterTerm,
-                    minCs: parseFloat(event.target.value) || 0,
-                  });
-                }}
-              />{" "}
-            </div>
-            <div id="minOdForm">
-              <label className="form-label" htmlFor="ODMin">
-                Min OD
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                step="0.01"
-                min="0"
-                name="Min OD "
-                placeholder="Min OD"
-                id="ODMin"
-                onChange={(event) => {
-                  setFilterTerm({
-                    ...filterTerm,
-                    minOd: parseFloat(event.target.value) || 0,
-                  });
-                }}
-              />{" "}
-            </div>
-          </div>
-
-          <div className="col">
-            <div id="ringCodeForm">
-              <label className="form-label" htmlFor="ringCode">
-                Ring Code
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                name="Ring Code"
-                placeholder="Code"
-                id="ringCode"
-                onChange={(event) => {
-                  setFilterTerm({ ...filterTerm, code: event.target.value });
-                }}
-              />
-            </div>
+          )}
+          {divWrapper(
+            "col",
             <div id="maxIdForm">
               <label className="form-label" htmlFor="IDMax">
                 Max ID
@@ -141,26 +109,32 @@ function App() {
                 }}
               />{" "}
             </div>
-            <div id="maxCsForm">
-              <label className="form-label" htmlFor="CSMax">
-                Max CS{" "}
+          )}
+          {divWrapper(
+            "col",
+            <div id="minOdForm">
+              <label className="form-label" htmlFor="ODMin">
+                Min OD
               </label>
               <input
                 className="form-control"
                 type="number"
                 step="0.01"
                 min="0"
-                name="Max CS "
-                placeholder="Max CS"
-                id="CSMax"
+                name="Min OD "
+                placeholder="Min OD"
+                id="ODMin"
                 onChange={(event) => {
                   setFilterTerm({
                     ...filterTerm,
-                    maxCs: parseFloat(event.target.value) || 0,
+                    minOd: parseFloat(event.target.value) || 0,
                   });
                 }}
               />{" "}
             </div>
+          )}
+          {divWrapper(
+            "col",
             <div id="maxOdForm">
               <label className="form-label" htmlFor="ODMax">
                 Max OD
@@ -181,7 +155,53 @@ function App() {
                 }}
               />{" "}
             </div>
-          </div>
+          )}
+          {divWrapper(
+            "col",
+            <div id="minCsForm">
+              <label className="form-label" htmlFor="CSMin">
+                Min CS
+              </label>
+              <input
+                className="form-control"
+                type="number"
+                step="0.01"
+                min="0"
+                name="Min CS "
+                placeholder="Min CS"
+                id="CSMin"
+                onChange={(event) => {
+                  setFilterTerm({
+                    ...filterTerm,
+                    minCs: parseFloat(event.target.value) || 0,
+                  });
+                }}
+              />{" "}
+            </div>
+          )}
+          {divWrapper(
+            "col",
+            <div id="maxCsForm">
+              <label className="form-label" htmlFor="CSMax">
+                Max CS{" "}
+              </label>
+              <input
+                className="form-control"
+                type="number"
+                step="0.01"
+                min="0"
+                name="Max CS "
+                placeholder="Max CS"
+                id="CSMax"
+                onChange={(event) => {
+                  setFilterTerm({
+                    ...filterTerm,
+                    maxCs: parseFloat(event.target.value) || 0,
+                  });
+                }}
+              />{" "}
+            </div>
+          )}
 
           <div className="container col ">
             <img
