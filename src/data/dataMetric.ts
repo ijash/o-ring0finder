@@ -1,50 +1,4 @@
-import { IDataObject, IData } from "./IData";
-
-const headers = [
-  "Code",
-  "ID(mm)",
-  "OD(mm)",
-  "CS(mm)",
-  "ID(inch)",
-  "OD(inch)",
-  "CS(inch)",
-];
-export class Metric implements IData {
-  getValues: () => IDataObject[];
-  headers: string[];
-
-  constructor() {
-    this.getValues = getValues;
-    this.headers = headers;
-  }
-}
-
-function stripHtml(html: any) {
-  let tmp = document.createElement("DIV");
-  tmp.innerHTML = html;
-  return tmp.firstElementChild as HTMLTableElement;
-}
-
-function dataMapper(d: string[]): IDataObject {
-  return {
-    standard: "Common Metric",
-    code: d[0],
-    mmCs: parseFloat(d[4]),
-    mmId: parseFloat(d[5]),
-    mmOd: parseFloat(d[6]),
-    inchCs: parseFloat(d[1]),
-    inchId: parseFloat(d[2]),
-    inchOd: parseFloat(d[3]),
-    // size: {
-    //   cs: { mm: parseFloat(d[4]), inch: parseFloat(d[1]) },
-    //   id: { mm: parseFloat(d[5]), inch: parseFloat(d[2]) },
-    //   od: { mm: parseFloat(d[6]), inch: parseFloat(d[3]) },
-    // },
-  };
-}
-
-function getValues(): IDataObject[] {
-  const tableText = `<table class="standards fixed-header ready" style="background-image: none;">
+const data: string = `<table class="standards fixed-header ready" style="background-image: none;">
   
     <thead style="visibility: visible;"> 
        
@@ -77935,38 +77889,4 @@ function getValues(): IDataObject[] {
     
     </tbody>
     </table>`;
-
-  const table = stripHtml(tableText);
-  let headers: string[] = [];
-  let extracted: string[][] = [];
-  for (let i = 0, row; (row = table.rows[i]); i++) {
-    //iterate through rows
-    //rows would be accessed using the "row" variable assigned in the for loop
-    //   console.log(row);
-    extracted.push([]);
-    for (let j = 0, col; (col = row.cells[j]); j++) {
-      if (col.nodeName === "TH") {
-        headers.push(col.innerText);
-      } else {
-        if (i > 2) {
-          if (j === 0 || j === 7) {
-            const el = col.firstElementChild! as HTMLElement;
-            extracted[i].push(el.innerText);
-          } else {
-            extracted[i].push(col.innerText);
-          }
-        } else {
-          extracted[i].push("skipped");
-        }
-      }
-      //iterate through columns
-      //columns would be accessed using the "col" variable assigned in the for loop
-    }
-  }
-  for (let _i in [1, 2, 3]) {
-    extracted.shift();
-  }
-
-  const dataObj = extracted.map((d) => dataMapper(d));
-  return dataObj;
-}
+export default data;
