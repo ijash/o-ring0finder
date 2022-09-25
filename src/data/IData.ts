@@ -1,18 +1,16 @@
 export interface IData {
-  getValues: () => IDataObject[];
-  headers: string[];
+  getValues: (unit?: MeasurementUnit) => DataRepresentation[];
 }
 export interface IDataObject {
   standard: string;
   code: string;
-  mmCs: number;
-  mmId: number;
-  mmOd: number;
-  inchCs: number;
-  inchId: number;
-  inchOd: number;
+  cs: number;
+  id: number;
+  od: number;
 }
-
+export interface DataRepresentation extends IDataObject {
+  unit: MeasurementUnit;
+}
 export interface IGetValues {}
 
 export enum Standard {
@@ -22,7 +20,7 @@ export enum Standard {
 }
 export enum MeasurementUnit {
   MM = "mm",
-  INCH = "inch",
+  INCH = "Inch",
 }
 
 export interface IDataFilter {
