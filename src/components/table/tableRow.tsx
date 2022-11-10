@@ -1,23 +1,33 @@
-import {
-  IData,
-  IDataFilter,
-  Standard,
-  DataRepresentation,
-} from "../data/IData";
+import React from "react";
+import { IData, IDataFilter, Standard, DataRepresentation } from "data";
 
-export function TableRowsComponent(data: IData[], filter?: IDataFilter) {
-  function setStandardColor(color: Standard): string {
+interface props {
+  data: IData[];
+  filter?: IDataFilter;
+}
+const style = {
+  standard: (color: Standard): string => {
+    let standardColor;
     switch (color) {
       case Standard.AS:
-        return "primary";
+        standardColor = "primary";
+        break;
       case Standard.JIS:
-        return "info";
+        standardColor = "info";
+        break;
       case Standard.METRIC:
-        return "success";
+        standardColor = "success";
+        break;
       default:
-        return "dark";
+        standardColor = "dark";
+        break;
     }
-  }
+    return `fw-bold text-${standardColor}`;
+  },
+  code: "fw-bold",
+};
+
+export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
   let rows: DataRepresentation[] = [];
   data.forEach((s) => {
     let processedData: DataRepresentation[];
@@ -44,22 +54,23 @@ export function TableRowsComponent(data: IData[], filter?: IDataFilter) {
     }
     rows.push(...processedData);
   });
-  return rows.map((row) => {
-    const result = (
-      <tr>
-        <td
-          className={`fw-bold text-${setStandardColor(
-            row.standard as Standard
-          )}`}
-        >
-          {row.standard}
-        </td>
-        <td className="fw-bold ">{row.code}</td>
-        <td>{row.id}</td>
-        <td>{row.od}</td>
-        <td>{row.cs}</td>
-      </tr>
-    );
-    return result;
-  });
-}
+
+  return (
+    <>
+      {rows.map((row) => {
+        const result = (
+          <tr>
+            <td className={`${style.standard(row.standard as Standard)}`}>
+              {row.standard}
+            </td>
+            <td className={style.code}>{row.code}</td>
+            <td>{row.id}</td>
+            <td>{row.od}</td>
+            <td>{row.cs}</td>
+          </tr>
+        );
+        return result;
+      })}
+    </>
+  );
+};
