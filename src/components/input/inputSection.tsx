@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
+import { debounce } from "lodash";
+
+import oringSpec from "assets/img/oring-spec.jpg";
+
 import { FilterContext } from "components/context";
 import { LabelWrapper, StandardElementProps } from "components/common";
-import oringSpec from "assets/img/oring-spec.jpg";
-import {} from "components";
-import { IDataFilter } from "data";
+import { IDataFilter, MeasurementUnit } from "data";
 import {
   SelectInput,
   NumberInput,
@@ -15,6 +17,12 @@ interface props extends StandardElementProps {}
 export const InputSection: React.FC<props> = () => {
   const filterContext = useContext(FilterContext);
 
+  const updateContextDelay = 897; //milliseconds
+  const setFilterDebounced = useCallback(
+    debounce(filterContext.setFilter, updateContextDelay),
+    []
+  );
+
   const handleFilter = (filterName: keyof IDataFilter) => {
     return (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const filterValue = {
@@ -22,7 +30,7 @@ export const InputSection: React.FC<props> = () => {
         [filterName]: event.target.value,
       };
 
-      filterContext.setFilter(filterValue);
+      setFilterDebounced(filterValue);
     };
   };
 
@@ -52,8 +60,8 @@ export const InputSection: React.FC<props> = () => {
             <SelectInput
               name="Unit"
               options={[
-                { name: "Metric(mm)", value: "mm" },
-                { name: "Imperial(Inch)", value: "inch" },
+                { name: "Metric(mm)", value: MeasurementUnit.MM },
+                { name: "Imperial(Inch)", value: MeasurementUnit.INCH },
               ]}
               handleChange={handleFilter("unit")}
             ></SelectInput>

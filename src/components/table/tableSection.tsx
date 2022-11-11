@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TableRowsComponent } from "components";
 import { As568Data, JisData, MetricData, StandardData } from "data";
+import { FilterContext } from "components/context";
+
 interface props {}
 
 export const TableSection: React.FC<props> = () => {
   const as568 = As568Data;
   const jis = JisData;
   const metric = MetricData;
+  const filterContext = useContext(FilterContext);
+
   return (
     <div className="row text-start">
       <table className="table table-hover table-striped table-sm table-responsive table caption-top shadow-sm">
@@ -26,7 +30,10 @@ export const TableSection: React.FC<props> = () => {
           ))}
         </thead>
         <tbody className="table-group-divider">
-          <TableRowsComponent data={[as568, jis, metric]} />
+          <TableRowsComponent
+            data={[as568, jis, metric]}
+            filter={filterContext.filter}
+          />
         </tbody>
       </table>
     </div>

@@ -28,6 +28,7 @@ const style = {
 };
 
 export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
+  console.log("OO", filter);
   let rows: DataRepresentation[] = [];
   data.forEach((s) => {
     let processedData: DataRepresentation[];
