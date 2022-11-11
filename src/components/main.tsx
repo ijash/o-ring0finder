@@ -1,21 +1,22 @@
-import { GlobalContext } from "./common";
-import { Title, InputSection, TableSection } from "components";
-import { useState } from "react";
+import {
+  Title,
+  InputSection,
+  TableSection,
+  FilterContextProvider,
+} from "components";
 
 interface MainProps {}
 
 export const Main: React.FC<MainProps> = (props) => {
-  const [global, setGlobal] = useState({});
-
   return (
-    <GlobalContext.Provider value={{ global, setGlobal }}>
-      <main>
+    <main>
+      <FilterContextProvider>
         <div className="container">
           <Title />
           <InputSection />
           <TableSection />
         </div>
-      </main>
-    </GlobalContext.Provider>
+      </FilterContextProvider>
+    </main>
   );
 };

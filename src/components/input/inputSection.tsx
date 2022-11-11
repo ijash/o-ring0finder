@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FilterContext } from "components/context";
 import { LabelWrapper, StandardElementProps } from "components/common";
 import oringSpec from "assets/img/oring-spec.jpg";
 import {} from "components";
+import { IDataFilter } from "data";
 import {
   SelectInput,
   NumberInput,
@@ -11,6 +13,19 @@ import {
 interface props extends StandardElementProps {}
 
 export const InputSection: React.FC<props> = () => {
+  const filterContext = useContext(FilterContext);
+
+  const handleFilter = (filterName: keyof IDataFilter) => {
+    return (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const filterValue = {
+        ...filterContext.filter,
+        [filterName]: event.target.value,
+      };
+
+      filterContext.setFilter(filterValue);
+    };
+  };
+
   return (
     <div>
       <div className="row text-start">
@@ -40,30 +55,59 @@ export const InputSection: React.FC<props> = () => {
                 { name: "Metric(mm)", value: "mm" },
                 { name: "Imperial(Inch)", value: "inch" },
               ]}
+              handleChange={handleFilter("unit")}
             ></SelectInput>
           </LabelWrapper>
           <LabelWrapper label="Code">
-            <TextInput name="Ring Code" id="ringcode"></TextInput>
+            <TextInput
+              name="Ring Code"
+              id="ringcode"
+              handleChange={handleFilter("code")}
+            ></TextInput>
           </LabelWrapper>
           <LabelWrapper label="Min ID">
-            <NumberInput name="Min ID" id="minid"></NumberInput>
+            <NumberInput
+              name="Min ID"
+              id="minid"
+              handleChange={handleFilter("minId")}
+            ></NumberInput>
           </LabelWrapper>
           <LabelWrapper label="Max ID">
-            <NumberInput name="Max ID" id="maxid"></NumberInput>
+            <NumberInput
+              name="Max ID"
+              id="maxid"
+              handleChange={handleFilter("maxId")}
+            ></NumberInput>
           </LabelWrapper>
         </div>
         <div className="col-sm-4">
           <LabelWrapper label="Min OD">
-            <NumberInput name="Min OD" id="minod"></NumberInput>
+            <NumberInput
+              name="Min OD"
+              id="minod"
+              handleChange={handleFilter("minOd")}
+            ></NumberInput>
           </LabelWrapper>
           <LabelWrapper label="Max OD">
-            <NumberInput name="Max OD" id="maxod"></NumberInput>
+            <NumberInput
+              name="Max OD"
+              id="maxod"
+              handleChange={handleFilter("maxOd")}
+            ></NumberInput>
           </LabelWrapper>
           <LabelWrapper label="Min CS">
-            <NumberInput name="Min CS" id="mincs"></NumberInput>
+            <NumberInput
+              name="Min CS"
+              id="mincs"
+              handleChange={handleFilter("minCs")}
+            ></NumberInput>
           </LabelWrapper>
           <LabelWrapper label="Max CS">
-            <NumberInput name="Max CS" id="maxcs"></NumberInput>
+            <NumberInput
+              name="Max CS"
+              id="maxcs"
+              handleChange={handleFilter("maxCs")}
+            ></NumberInput>
           </LabelWrapper>
         </div>
       </div>

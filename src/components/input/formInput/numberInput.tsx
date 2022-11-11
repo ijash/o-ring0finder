@@ -4,11 +4,16 @@ import { StandardElementProps, inputStyle } from "components/common";
 interface props extends StandardElementProps {
   name: string;
   placeholder?: string;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const style = ` ${inputStyle} form-control form-control-sm`;
 
-export const NumberInput: React.FC<props> = ({ name, placeholder }) => {
+export const NumberInput: React.FC<props> = ({
+  name,
+  placeholder,
+  handleChange,
+}) => {
   return (
     <div>
       <input
@@ -18,6 +23,7 @@ export const NumberInput: React.FC<props> = ({ name, placeholder }) => {
         placeholder={placeholder ?? name}
         min={0}
         className={`${style}`}
+        onChange={handleChange}
       />
     </div>
   );
