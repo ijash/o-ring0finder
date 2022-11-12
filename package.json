@@ -2,7 +2,13 @@
   "name": "o-ring-finder",
   "version": "1.0.0",
   "homepage": "https://ijash.github.io/o-ring-finder",
+  "license": "LGPL-3.0-or-later",
   "private": true,
+  "description": "O-Ring size and code finder tool built with react + Typescript",
+  "author": {
+    "name": "Jastria Rahmat",
+    "email": "ijash1000@gmail.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -50,5 +56,24 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
+  },
+  "keywords": [
+    "o-ring",
+    "oring",
+    "pneumatic",
+    "seal",
+    "rubber",
+    "as568",
+    "jis",
+    "nbr",
+    "fkm",
+    "vitton",
+    "nitrile",
+    "airgun",
+    "regulator",
+    "groove"
+  ],
+  "bugs": {
+    "url": "https://github.com/owner/project/issues"
   }
 }

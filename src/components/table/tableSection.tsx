@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TableRowsComponent } from "components";
+import { TableRowsComponent, TableHead } from "components";
 import { As568Data, JisData, MetricData, StandardData } from "data";
 import { FilterContext } from "components/context";
 
@@ -11,24 +11,31 @@ export const TableSection: React.FC<props> = () => {
   const metric = MetricData;
   const filterContext = useContext(FilterContext);
 
+  const tableStyle = `
+    table table-hover
+    table-striped
+    table-sm
+    table-responsive
+    table caption-top
+    shadow-sm
+    `;
+
+  // TODO Enable sorting by header name
+
   return (
-    <div className="row text-start">
-      <table className="table table-hover table-striped table-sm table-responsive table caption-top shadow-sm">
+    <div className="row">
+      <table className={tableStyle}>
         <caption>
           <div className="container">
             <small>
               {"O-ring size table represented in "}
-              <strong>{"filterTerm.unit"}</strong>
+              <strong>{filterContext.filter.unit}</strong>
             </small>
           </div>
         </caption>
-        <thead className="table-dark bg-dark">
-          {StandardData.getHeaders().map((h: string) => (
-            <th>
-              <strong>{h}</strong>
-            </th>
-          ))}
-        </thead>
+
+        <TableHead headerData={StandardData.getHeaders()} />
+
         <tbody className="table-group-divider">
           <TableRowsComponent
             data={[as568, jis, metric]}

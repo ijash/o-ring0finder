@@ -15,7 +15,7 @@ export const FilterContext = createContext<FilterContextStateType>(
   {} as FilterContextStateType
 );
 
-export const FilterContextProvider = ({ children }: Props) => {
+export const FilterContextProvider: React.FC<Props> = ({ children }) => {
   const initFilterValue = {
     unit: MeasurementUnit.MM,
   };

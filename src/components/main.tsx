@@ -3,6 +3,7 @@ import {
   InputSection,
   TableSection,
   FilterContextProvider,
+  FooterText,
 } from "components";
 
 interface MainProps {}
@@ -11,11 +12,12 @@ export const Main: React.FC<MainProps> = (props) => {
   return (
     <main>
       <FilterContextProvider>
+        <Title />
         <div className="container">
-          <Title />
           <InputSection />
           <TableSection />
         </div>
+        <FooterText />
       </FilterContextProvider>
     </main>
   );
