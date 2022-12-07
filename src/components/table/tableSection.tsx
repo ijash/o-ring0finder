@@ -12,7 +12,8 @@ export const TableSection: React.FC<props> = () => {
   const filterContext = useContext(FilterContext);
 
   const tableStyle = `
-    table table-hover
+    table
+    table-hover
     table-striped
     table-sm
     table-responsive

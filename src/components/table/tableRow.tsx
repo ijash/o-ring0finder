@@ -22,13 +22,12 @@ const style = {
         standardColor = "dark";
         break;
     }
-    return `fw-bold text-${standardColor}`;
+    return `text-${standardColor}`;
   },
   code: "fw-bold",
 };
 
 export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
-  console.log("OO", filter);
   let rows: DataRepresentation[] = [];
   data.forEach((s) => {
     let processedData: DataRepresentation[];
