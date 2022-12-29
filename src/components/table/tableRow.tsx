@@ -59,11 +59,16 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
     <>
       {rows.map((row) => {
         const result = (
-          <tr>
-            <td className={`${style.standard(row.standard as Standard)}`}>
+          <tr vocab="https://schema.org/" typeof="Product">
+            <td
+              className={`${style.standard(row.standard as Standard)}`}
+              property="brand"
+            >
               {row.standard}
             </td>
-            <td className={style.code}>{row.code}</td>
+            <td className={style.code} property="size">
+              {row.code}
+            </td>
             <td>{row.id}</td>
             <td>{row.od}</td>
             <td>{row.cs}</td>
