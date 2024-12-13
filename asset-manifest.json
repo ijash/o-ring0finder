@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/o-ring-finder/static/css/main.bcad98aa.css",
-    "main.js": "/o-ring-finder/static/js/main.aac5f171.js",
+    "main.css": "/o-ring-finder/static/css/main.d7ee193e.css",
+    "main.js": "/o-ring-finder/static/js/main.24530caa.js",
     "index.html": "/o-ring-finder/index.html",
-    "main.bcad98aa.css.map": "/o-ring-finder/static/css/main.bcad98aa.css.map",
-    "main.aac5f171.js.map": "/o-ring-finder/static/js/main.aac5f171.js.map"
+    "main.d7ee193e.css.map": "/o-ring-finder/static/css/main.d7ee193e.css.map",
+    "main.24530caa.js.map": "/o-ring-finder/static/js/main.24530caa.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcad98aa.css",
-    "static/js/main.aac5f171.js"
+    "static/css/main.d7ee193e.css",
+    "static/js/main.24530caa.js"
   ]
 }
