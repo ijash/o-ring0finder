@@ -5,8 +5,8 @@ interface Props {
   handleSort?: React.MouseEventHandler<HTMLTableCellElement>;
 }
 
-const tHeadstyle = "bg-dark";
-const thstyle = "text-light";
+const tHeadStyle = "bg-dark";
+const thStyle = "text-white";
 
 export const TableHead: React.FC<Props> = ({ headerData, handleSort }) => {
   function handleSortWithId(id: string) {
@@ -15,12 +15,12 @@ export const TableHead: React.FC<Props> = ({ headerData, handleSort }) => {
   }
 
   return (
-    <thead className={tHeadstyle}>
+    <thead className={tHeadStyle}>
       {headerData.map((h: string) => {
         const headerId = "th_" + h.replace(/ /g, "").toLowerCase();
         return (
-          <th className={thstyle} onClick={() => handleSortWithId(headerId)}>
-            <strong>{h}</strong>
+          <th className={thStyle} onClick={() => handleSortWithId(headerId)}>
+            {h}
           </th>
         );
       })}

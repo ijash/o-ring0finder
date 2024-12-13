@@ -64,9 +64,9 @@ export class StandardData implements IData {
       }
     }
     // remove headers row
-    for (let _i in [1, 2, 3]) {
+    [1, 2, 3].forEach(() => {
       extracted.shift();
-    }
+    });
 
     const dataObj = extracted.map((d) => this.dataMapper(d));
     if (!dataObj) throw new Error("invalid data");

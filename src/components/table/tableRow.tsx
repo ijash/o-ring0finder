@@ -41,7 +41,11 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
         if (filter.minOd && row.od < filter.minOd) return false;
         if (filter.maxOd && row.od > filter.maxOd) return false;
 
-        if (filter.code && !row.code.includes(filter.code)) return false;
+        if (
+          filter.code &&
+          !row.code.toLowerCase().includes(filter.code.toLowerCase())
+        )
+          return false;
         if (
           filter.standard &&
           !filter.standard.includes(row.standard as Standard)

@@ -10,6 +10,7 @@ import {
   SelectInput,
   NumberInput,
   TextInput,
+  ButtonInput,
 } from "components/input/formInput";
 
 interface props extends StandardElementProps {}
@@ -32,6 +33,18 @@ export const InputSection: React.FC<props> = () => {
 
       setFilterDebounced(filterValue);
     };
+  };
+
+  const handleClear = () => {
+    filterContext.setFilter({
+      unit: filterContext.filter.unit,
+    });
+    // clear all inputs
+    document.querySelectorAll("input").forEach((input) => {
+      input.value = "";
+    });
+
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -88,6 +101,7 @@ export const InputSection: React.FC<props> = () => {
             ></NumberInput>
           </LabelWrapper>
         </div>
+
         <div className="col-sm-4">
           <LabelWrapper label="Min OD">
             <NumberInput
@@ -118,6 +132,13 @@ export const InputSection: React.FC<props> = () => {
             ></NumberInput>
           </LabelWrapper>
         </div>
+      </div>
+      <div className="mt-3 col-8 offset-2">
+        <ButtonInput
+          name="Clear"
+          value="Clear Inputs"
+          handleChange={handleClear}
+        />
       </div>
     </div>
   );
