@@ -1,30 +1,38 @@
 import React from "react";
 import { useSort, SortDirection } from "components/context/SortContext";
+import { dir } from "console";
 
 interface Props {
   headerData: string[];
 }
 
 const tHeadStyle = "bg-dark clickable";
-const thStyle = "text-white ";
+const thStyle = "text-white ps-2";
 
 export const TableHead: React.FC<Props> = ({ headerData }) => {
   const { sortBy, sortDirection, setSortBy, setSortDirection } = useSort();
 
   const handleSort = (header: string) => {
     if (sortBy === header) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+      setSortDirection(
+        sortDirection === "asc"
+          ? "desc"
+          : sortDirection === "desc"
+          ? "undefined"
+          : "asc"
+      );
     } else {
       setSortBy(header);
       setSortDirection("asc");
     }
   };
-
   const renderSortIcon = (header: string) => {
     if (sortBy === header) {
-      return sortDirection === "asc" ? "▲" : "▼";
+      const style = "bg-info";
+      if (sortDirection === "asc") return { direction: `▲`, style: style };
+      if (sortDirection === "desc") return { direction: `▼`, style: style };
     }
-    return null;
+    return { direction: undefined, style: "" };
   };
 
   return (
@@ -34,10 +42,11 @@ export const TableHead: React.FC<Props> = ({ headerData }) => {
         return (
           <th
             key={headerId}
-            className={thStyle}
+            className={`${renderSortIcon(headerId)?.style} ${thStyle}`}
             onClick={() => handleSort(headerId)}
           >
-            {h} {renderSortIcon(headerId)}
+            {h}
+            {renderSortIcon(headerId)?.direction}
           </th>
         );
       })}

@@ -6,8 +6,8 @@ interface props {
   data: IData[];
   filter?: IDataFilter;
 }
-
-const style = {
+const rowStyle = "ps-2";
+const specialStyle = {
   standard: (color: Standard): string => {
     let standardColor;
     switch (color) {
@@ -26,7 +26,7 @@ const style = {
     }
     return `text-${standardColor}`;
   },
-  code: "fw-bold",
+  code: "fw-bold ",
 };
 
 export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
@@ -63,7 +63,7 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
   });
 
   rows.sort((a, b) => {
-    if (sortBy) {
+    if (sortBy && sortDirection !== "undefined") {
       const aValue = a[sortBy as keyof DataRepresentation];
       const bValue = b[sortBy as keyof DataRepresentation];
       if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
@@ -78,17 +78,19 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
         const result = (
           <tr vocab="https://schema.org/" typeof="Product" key={row.code}>
             <td
-              className={`${style.standard(row.standard as Standard)}`}
+              className={`${rowStyle} ${specialStyle.standard(
+                row.standard as Standard
+              )}`}
               property="brand"
             >
               {row.standard}
             </td>
-            <td className={style.code} property="size">
+            <td className={`${rowStyle} ${specialStyle.code}`} property="size">
               {row.code}
             </td>
-            <td>{row.id}</td>
-            <td>{row.od}</td>
-            <td>{row.cs}</td>
+            <td className={`${rowStyle}`}>{row.id}</td>
+            <td className={`${rowStyle}`}>{row.od}</td>
+            <td className={`${rowStyle}`}>{row.cs}</td>
           </tr>
         );
         return result;
