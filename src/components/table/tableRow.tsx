@@ -1,10 +1,12 @@
 import React from "react";
 import { IData, IDataFilter, Standard, DataRepresentation } from "data";
+import { useSort } from "components/context/SortContext";
 
 interface props {
   data: IData[];
   filter?: IDataFilter;
 }
+
 const style = {
   standard: (color: Standard): string => {
     let standardColor;
@@ -28,7 +30,9 @@ const style = {
 };
 
 export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
+  const { sortBy, sortDirection } = useSort();
   let rows: DataRepresentation[] = [];
+
   data.forEach((s) => {
     let processedData: DataRepresentation[];
 
@@ -40,7 +44,6 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
         if (filter.maxId && row.id > filter.maxId) return false;
         if (filter.minOd && row.od < filter.minOd) return false;
         if (filter.maxOd && row.od > filter.maxOd) return false;
-
         if (
           filter.code &&
           !row.code.toLowerCase().includes(filter.code.toLowerCase())
@@ -59,11 +62,21 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
     rows.push(...processedData);
   });
 
+  rows.sort((a, b) => {
+    if (sortBy) {
+      const aValue = a[sortBy as keyof DataRepresentation];
+      const bValue = b[sortBy as keyof DataRepresentation];
+      if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
+      if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
   return (
     <>
       {rows.map((row) => {
         const result = (
-          <tr vocab="https://schema.org/" typeof="Product">
+          <tr vocab="https://schema.org/" typeof="Product" key={row.code}>
             <td
               className={`${style.standard(row.standard as Standard)}`}
               property="brand"

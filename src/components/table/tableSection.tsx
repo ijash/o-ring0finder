@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { TableRowsComponent, TableHead } from "components";
 import { As568Data, JisData, MetricData, StandardData } from "data";
 import { FilterContext } from "components/context";
+import { SortProvider } from "components/context/SortContext";
 
 interface props {}
 
@@ -21,29 +22,29 @@ export const TableSection: React.FC<props> = () => {
     shadow-sm
     `;
 
-  // TODO Enable sorting by header name
-
   return (
-    <div className="row">
-      <table className={tableStyle}>
-        <caption>
-          <div className="container">
-            <small>
-              {"O-ring size table represented in "}
-              <strong>{filterContext.filter.unit}</strong>
-            </small>
-          </div>
-        </caption>
+    <SortProvider>
+      <div className="row">
+        <table className={tableStyle}>
+          <caption>
+            <div className="container">
+              <small>
+                {"O-ring size table represented in "}
+                <strong>{filterContext.filter.unit}</strong>
+              </small>
+            </div>
+          </caption>
 
-        <TableHead headerData={StandardData.getHeaders()} />
+          <TableHead headerData={StandardData.getHeaders()} />
 
-        <tbody className="table-group-divider">
-          <TableRowsComponent
-            data={[as568, jis, metric]}
-            filter={filterContext.filter}
-          />
-        </tbody>
-      </table>
-    </div>
+          <tbody className="table-group-divider">
+            <TableRowsComponent
+              data={[as568, jis, metric]}
+              filter={filterContext.filter}
+            />
+          </tbody>
+        </table>
+      </div>
+    </SortProvider>
   );
 };
