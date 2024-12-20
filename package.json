@@ -10,6 +10,7 @@
     "email": "ijash1000@gmail.com"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -18,8 +19,9 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
-    "bootstrap": "^5.2.1",
+    "bootstrap": "^5.3.3",
     "lodash": "^4.17.21",
+    "popper": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -56,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
     "@types/react-helmet": "^6.1.6",
     "gh-pages": "^4.0.0"
   },
