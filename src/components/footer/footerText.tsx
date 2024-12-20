@@ -1,4 +1,5 @@
 import React from "react";
+import packageJson from "../../../package.json";
 
 interface Props {}
 
@@ -21,6 +22,7 @@ export const FooterText: React.FC<Props> = (props) => {
             </a>
           </p>
           <p>All contributors are welcomed</p>
+          <p>Version {packageJson.version}</p>
         </small>
       </div>
     </footer>
