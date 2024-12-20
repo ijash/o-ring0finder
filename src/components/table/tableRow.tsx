@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { IData, IDataFilter, Standard, DataRepresentation } from "data";
 import { useSort } from "components/context/SortContext";
+import CustomModal from "components/modal/modal";
 
 interface props {
   data: IData[];
@@ -31,6 +32,19 @@ const specialStyle = {
 
 export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
   const { sortBy, sortDirection } = useSort();
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState<DataRepresentation | null>(null);
+
+  const handleShowModal = (rowData: DataRepresentation) => {
+    setModalData(rowData);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setModalData(null);
+  };
+
   let rows: DataRepresentation[] = [];
 
   data.forEach((s) => {
@@ -76,7 +90,12 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
     <>
       {rows.map((row) => {
         const result = (
-          <tr vocab="https://schema.org/" typeof="Product" key={row.code}>
+          <tr
+            vocab="https://schema.org/"
+            typeof="Product"
+            key={row.code}
+            onClick={() => handleShowModal(row)}
+          >
             <td
               className={`${rowStyle} ${specialStyle.standard(
                 row.standard as Standard
@@ -85,7 +104,11 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
             >
               {row.standard}
             </td>
-            <td className={`${rowStyle} ${specialStyle.code}`} property="size">
+            <td
+              className={`${rowStyle} ${specialStyle.code}`}
+              property="size"
+              style={{ cursor: "pointer" }}
+            >
               {row.code}
             </td>
             <td className={`${rowStyle}`}>{row.id}</td>
@@ -95,6 +118,11 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
         );
         return result;
       })}
+      <CustomModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        rowData={modalData}
+      />
     </>
   );
 };
