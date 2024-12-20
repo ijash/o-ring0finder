@@ -1,6 +1,5 @@
 import React from "react";
-import { useSort, SortDirection } from "components/context/SortContext";
-import { dir } from "console";
+import { useSort } from "components/context/SortContext";
 
 interface Props {
   headerData: string[];

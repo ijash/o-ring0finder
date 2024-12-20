@@ -21,7 +21,7 @@ export const InputSection: React.FC<props> = () => {
   const updateContextDelay = 897; //milliseconds
   const setFilterDebounced = useCallback(
     debounce(filterContext.setFilter, updateContextDelay),
-    []
+    [filterContext]
   );
 
   const handleFilter = (filterName: keyof IDataFilter) => {
