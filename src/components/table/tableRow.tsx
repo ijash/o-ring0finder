@@ -95,6 +95,7 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
             typeof="Product"
             key={row.code}
             onClick={() => handleShowModal(row)}
+            style={{ cursor: "pointer" }}
           >
             <td
               className={`${rowStyle} ${specialStyle.standard(
@@ -104,11 +105,7 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
             >
               {row.standard}
             </td>
-            <td
-              className={`${rowStyle} ${specialStyle.code}`}
-              property="size"
-              style={{ cursor: "pointer" }}
-            >
+            <td className={`${rowStyle} ${specialStyle.code}`} property="size">
               {row.code}
             </td>
             <td className={`${rowStyle}`}>{row.id}</td>

@@ -3,6 +3,7 @@ import { TableRowsComponent, TableHead } from "components";
 import { As568Data, JisData, MetricData, StandardData } from "data";
 import { FilterContext } from "components/context";
 import { SortProvider } from "components/context/SortContext";
+import { MeasurementUnit } from "data";
 
 interface props {}
 
@@ -30,7 +31,11 @@ export const TableSection: React.FC<props> = () => {
             <div className="container">
               <small>
                 {"O-ring size table represented in "}
-                <strong>{filterContext.filter.unit}</strong>
+                <strong>
+                  {filterContext.filter.unit === "mm"
+                    ? "Millimeters"
+                    : "Inches"}
+                </strong>
               </small>
             </div>
           </caption>
