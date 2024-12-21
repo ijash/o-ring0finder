@@ -20,7 +20,7 @@ export enum Standard {
 }
 export enum MeasurementUnit {
   MM = "mm",
-  INCH = "Inch",
+  INCH = "″",
 }
 
 export interface IDataFilter {

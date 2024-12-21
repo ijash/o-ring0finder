@@ -68,15 +68,15 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
               { label: "Ring Code", value: ringDimensions.code },
               {
                 label: "Inner Diameter",
-                value: `${ringDimensions.id} ${ringDimensions.unit}`,
+                value: `${ringDimensions.id}${ringDimensions.unit}`,
               },
               {
                 label: "Outer Diameter",
-                value: `${ringDimensions.od} ${ringDimensions.unit}`,
+                value: `${ringDimensions.od}${ringDimensions.unit}`,
               },
               {
                 label: "Cross Section",
-                value: `${ringDimensions.cs} ${ringDimensions.unit}`,
+                value: `${ringDimensions.cs}${ringDimensions.unit}`,
               },
             ].map(({ label, value }) => (
               <tr key={label}>

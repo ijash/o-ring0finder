@@ -1,5 +1,5 @@
 import React from "react";
-import packageJson from "../../../package.json";
+import { names } from "components/common";
 
 interface Props {}
 
@@ -22,7 +22,7 @@ export const FooterText: React.FC<Props> = (props) => {
             </a>
           </p>
           <p>All contributors are welcomed</p>
-          <p>Version {packageJson.version}</p>
+          <p>Version {names.version}</p>
         </small>
       </div>
     </footer>
