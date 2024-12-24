@@ -19,7 +19,7 @@ export default function LanguageDropdown() {
       >
         <small>{t("langSelect.display")}</small>
       </button>
-      <ul className="dropdown-menu">
+      <ul className="dropdown-menu dropdown-menu-end ">
         <li>
           <button
             className={`dropdown-item ${
