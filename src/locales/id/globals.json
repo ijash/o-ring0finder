@@ -4,11 +4,11 @@
     },
     "meta": {
         "title": "Oring Finder",
-        "description": "Aplikasi pencari ukuran & kode o-ring yang praktis dibuat oleh {{author}}. Tersedia dalam tiga standar umum: AS568, JIS Jepang, dan Common Metric."
+        "description": "Aplikasi pencari ukuran & kode o-ring dibuat oleh {{author}}. Tersedia dalam tiga standar umum: AS568, JIS Jepang, dan Common Metric."
     },
     "header": {
         "title": "Oring Finder",
-        "description": "Aplikasi pencari ukuran & kode o-ring yang praktis dibuat oleh"
+        "description": "Aplikasi pencari ukuran & kode o-ring dibuat oleh"
     },
     "inputForms": {
         "unit": {

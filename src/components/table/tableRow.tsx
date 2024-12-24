@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { IData, IDataFilter, Standard, DataRepresentation } from "data";
 import { useSort } from "components/context/SortContext";
 import CustomModal from "components/modal/modal";
@@ -114,11 +115,16 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
         );
         return result;
       })}
-      <CustomModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        rowData={modalData}
-      />
+      {showModal &&
+        // https://react.dev/reference/react-dom/createPortal
+        createPortal(
+          <CustomModal
+            show={showModal}
+            handleClose={handleCloseModal}
+            rowData={modalData}
+          />,
+          document.body // Modal will be rendered in the <body> element. because <tbody> wont accept any <div> element that resides inside the modal
+        )}
     </>
   );
 };
