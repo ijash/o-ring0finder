@@ -82,6 +82,7 @@
         "productFinder": "Pencarian Produk",
         "webSearch": "Web Search",
         "marketPlace": "Lokapasar",
-        "eCommerceWeb": "E-Commerce"
+        "eCommerceWeb": "E-Commerce",
+        "close": "Tutup"
     }
 }

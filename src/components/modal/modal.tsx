@@ -1,6 +1,7 @@
 import React from "react";
 import ModalContent from "./modalContent";
 import { DataRepresentation } from "data";
+import { useTranslation } from "react-i18next";
 
 interface ModalProps {
   show: boolean;
@@ -9,8 +10,8 @@ interface ModalProps {
 }
 
 const CustomModal: React.FC<ModalProps> = ({ show, handleClose, rowData }) => {
+  const { t } = useTranslation("global");
   if (!show || !rowData) return null;
-
   return (
     <div
       className="modal fade show"
@@ -55,7 +56,7 @@ const CustomModal: React.FC<ModalProps> = ({ show, handleClose, rowData }) => {
               data-bs-dismiss="modal"
               onClick={handleClose}
             >
-              Close
+              {t("modal.close")}
             </button>
           </div>
         </div>
