@@ -71,7 +71,7 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
           <tbody>
             {[
               { label: t("modal.standard"), value: ringDimensions.standard },
-              { label: "Ring Code", value: ringDimensions.code },
+              { label: t("modal.code"), value: ringDimensions.code },
               {
                 label: t("modal.id"),
                 value: `${ringDimensions.id}${ringDimensions.unit}`,
