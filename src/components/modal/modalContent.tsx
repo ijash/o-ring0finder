@@ -3,7 +3,7 @@ import { DataRepresentation } from "data";
 import { getElementWidth } from "utils";
 import RingVisualization from "./visualization";
 import { useTranslation } from "react-i18next";
-
+import { ProductSearch } from "./productSearch";
 interface ViewportDimensions {
   width: number;
   height: number;
@@ -11,6 +11,7 @@ interface ViewportDimensions {
 
 const HEIGHT_TO_WIDTH_RATIO = 0.4;
 const CONTAINER_ID = "visualContainer";
+const SECTION_STYLE_CLASS = "h3 text-center mt-3";
 
 const useViewportDimensions = (containerId: string) => {
   const [dimensions, setDimensions] = useState<ViewportDimensions>({
@@ -47,17 +48,19 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
   }
 
   return (
-    <div id="modalVisualization">
-      <div className="text-center" id={CONTAINER_ID}>
-        <h4 className="h3 text-center">{t("modal.visualization")}</h4>
-        <RingVisualization
-          ringDimensions={ringDimensions}
-          dimensions={viewportDimensions}
-        />
+    <div>
+      <div id="modalVisualization">
+        <div className={SECTION_STYLE_CLASS} id={CONTAINER_ID}>
+          <h4 className="h3 text-center">{t("modal.visualization")}</h4>
+          <RingVisualization
+            ringDimensions={ringDimensions}
+            dimensions={viewportDimensions}
+          />
+        </div>
       </div>
 
       <div id="modalAttributes">
-        <h4 className="h3 text-center mt-3">{t("modal.attribute")}</h4>
+        <h4 className={SECTION_STYLE_CLASS}>{t("modal.attribute")}</h4>
         <table className="table table-hover table-striped table-sm table-responsive caption-top border border-dark">
           <thead>
             <tr>
@@ -89,6 +92,11 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div id="modalProductFinder">
+        <h4 className={SECTION_STYLE_CLASS}>{t("modal.productFinder")}</h4>
+        <ProductSearch data={ringDimensions} />
       </div>
     </div>
   );

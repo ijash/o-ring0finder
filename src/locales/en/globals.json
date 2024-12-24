@@ -87,6 +87,10 @@
         "code": "Ring Code",
         "id": "Inner Diameter (ID)",
         "od": "Outer Diameter (OD)",
-        "cs": "Cross Section (CS)"
+        "cs": "Cross Section (CS)",
+        "productFinder": "Product Finder",
+        "webSearch": "Pencarian web",
+        "marketPlace": "Lokapasar",
+        "eCommerceWeb": "E-Commerce"
     }
 }

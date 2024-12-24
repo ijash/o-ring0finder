@@ -78,6 +78,10 @@
         "code": "Kode O-ring",
         "id": "Diameter Dalam (ID)",
         "od": "Diameter Luar (OD)",
-        "cs": "Tebal (CS)"
+        "cs": "Tebal (CS)",
+        "productFinder": "Pencarian Produk",
+        "webSearch": "Web Search",
+        "marketPlace": "Lokapasar",
+        "eCommerceWeb": "E-Commerce"
     }
 }
