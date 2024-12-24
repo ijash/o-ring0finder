@@ -1,24 +1,34 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { names } from "components/common";
+import { useTranslation } from "react-i18next";
+
 interface TitleProps {}
 
-export const Title: React.FC<TitleProps> = (props) => {
-  const title = names.siteTitle;
+export const Title: React.FC<TitleProps> = () => {
+  const { t } = useTranslation("global");
+  const title = t("header.title");
+
   return (
-    <div className="text-center">
-      <Helmet>
-        <title>{`${names.siteTitle} - By ${names.author}`}</title>
-        <meta
-          name="description"
-          content={`${names.description} by ${names.author}. available in three common standards, which is AS568, Japanese JIS and Common Metric.`}
-        />
-      </Helmet>
-      <h1 className="h1">{title}</h1>
+    <div className="position-relative text-center">
+      <HelmetProvider>
+        <Helmet>
+          <title>{t("meta.title")}</title>
+          <meta
+            name={t("meta.title")}
+            content={t("meta.description", { author: names.author.name })}
+          />
+        </Helmet>
+      </HelmetProvider>
+
+      <h1 className="h1 mt-3">{title}</h1>
       <p>
         <small>
-          {names.description} by
-          <a href="https://github.com/ijash/"> {names.author}</a>
+          {t("header.description")}
+          <a href={names.author.url} target="_blank" rel="noreferrer">
+            {" "}
+            {names.author.name}
+          </a>
         </small>
       </p>
     </div>

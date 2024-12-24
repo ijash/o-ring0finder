@@ -3,16 +3,20 @@ import { TableRowsComponent, TableHead } from "components";
 import { As568Data, JisData, MetricData, StandardData } from "data";
 import { FilterContext } from "components/context";
 import { SortProvider } from "components/context/SortContext";
-import { MeasurementUnit } from "data";
+import { useTranslation } from "react-i18next";
 
 interface props {}
 
 export const TableSection: React.FC<props> = () => {
+  const { t } = useTranslation("global");
+
   const as568 = As568Data;
   const jis = JisData;
   const metric = MetricData;
   const filterContext = useContext(FilterContext);
-
+  const translatedTableHead = StandardData.getHeaders().map((header) =>
+    t(`table.tableHead.${header.toLowerCase()}`)
+  );
   const tableStyle = `
     table
     table-hover
@@ -30,17 +34,17 @@ export const TableSection: React.FC<props> = () => {
           <caption>
             <div className="container">
               <small>
-                {"O-ring size table represented in "}
+                {t("table.infoDesc.desc")}
                 <strong>
                   {filterContext.filter.unit === "mm"
-                    ? "Millimeters"
-                    : "Inches"}
+                    ? t("table.infoDesc.unit.mm")
+                    : t("table.infoDesc.unit.inch")}
                 </strong>
               </small>
             </div>
           </caption>
 
-          <TableHead headerData={StandardData.getHeaders()} />
+          <TableHead headerData={translatedTableHead} />
 
           <tbody className="table-group-divider">
             <TableRowsComponent

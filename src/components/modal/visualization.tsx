@@ -135,7 +135,7 @@ const RingVisualization: React.FC<VisualizationProps> = ({
     const result = -csRange * 0.1;
     return Math.round(result * 100) / 100;
   }
-  console.log(getCSPosOffset(dimensions, outerDiameter, innerDiameter));
+
   const lines = getLineCoordinates();
   //   const labelMargins = (centerX - outerDiameter) * 0.2;
   const labelMargins = 10;

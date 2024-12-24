@@ -5,8 +5,8 @@ interface Props {
   headerData: string[];
 }
 
-const tHeadStyle = "bg-dark clickable";
-const thStyle = "text-white ps-2";
+const tHeadStyle = "bg-dark";
+const thStyle = "bg-dark text-white ps-2 clickable";
 
 export const TableHead: React.FC<Props> = ({ headerData }) => {
   const { sortBy, sortDirection, setSortBy, setSortDirection } = useSort();
@@ -35,20 +35,22 @@ export const TableHead: React.FC<Props> = ({ headerData }) => {
   };
 
   return (
-    <thead className={tHeadStyle}>
-      {headerData.map((h: string) => {
-        const headerId = h.replace(/ /g, "").toLowerCase();
-        return (
-          <th
-            key={headerId}
-            className={`${renderSortIcon(headerId)?.style} ${thStyle}`}
-            onClick={() => handleSort(headerId)}
-          >
-            {h}
-            {renderSortIcon(headerId)?.direction}
-          </th>
-        );
-      })}
+    <thead>
+      <tr className={tHeadStyle}>
+        {headerData.map((h: string) => {
+          const headerId = h.replace(/ /g, "").toLowerCase();
+          return (
+            <th
+              key={headerId}
+              className={`${renderSortIcon(headerId)?.style} ${thStyle}`}
+              onClick={() => handleSort(headerId)}
+            >
+              {h}
+              {renderSortIcon(headerId)?.direction}
+            </th>
+          );
+        })}
+      </tr>
     </thead>
   );
 };

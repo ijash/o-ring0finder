@@ -1,0 +1,92 @@
+{
+    "langSelect": {
+        "display": "Language"
+    },
+    "meta": {
+        "title": "Oring Finder",
+        "description": "Straight to the point o-ring size & code finder tool by {{author}}. Available in three standards: AS568, Japanese JIS, and Common Metric."
+    },
+    "header": {
+        "title": "Oring Finder",
+        "description": "Straight to the point o-ring size & code finder tool by "
+    },
+    "inputForms": {
+        "unit": {
+            "label": "Unit",
+            "placeholder": {
+                "metric": "Metric(mm)",
+                "imperial": "Imperial(Inch)"
+            }
+        },
+        "code": {
+            "label": "Code",
+            "placeholder": "Ring Code"
+        },
+        "minId": {
+            "label": "Min ID",
+            "placeholder": "Min ID"
+        },
+        "maxId": {
+            "label": "Max ID",
+            "placeholder": "Max ID"
+        },
+        "minOd": {
+            "label": "Min OD",
+            "placeholder": "Min OD"
+        },
+        "maxOd": {
+            "label": "Max OD",
+            "placeholder": "Max OD"
+        },
+        "minCs": {
+            "label": "Min CS",
+            "placeholder": "Min CS"
+        },
+        "maxCs": {
+            "label": "Max CS",
+            "placeholder": "Max CS"
+        },
+        "clear": "Clear filter"
+    },
+    "table": {
+        "infoDesc": {
+            "desc": "O-ring size table represented in ",
+            "unit": {
+                "mm": "Millimeters",
+                "inch": "Inches"
+            }
+        },
+        "table": {
+            "infoDesc": {
+                "desc": "Tabel ukuran o-ring menggunakan satuan ",
+                "unit": {
+                    "mm": "Milimeter",
+                    "inch": "Inci"
+                }
+            }
+        },
+        "tableHead": {
+            "standard": "Standard",
+            "code": "Code",
+            "id": "ID",
+            "od": "OD",
+            "cs": "CS"
+        }
+    },
+    "footer": {
+        "issueDesc": "If you encounter any issues or would like to suggest new features, please post an issue on this ",
+        "issueLinkName": "issue page",
+        "contribDesc": "Feel free to contribute to this app.",
+        "version": "Version"
+    },
+    "modal": {
+        "visualization": "Visualization",
+        "attribute": "Attribute",
+        "value": "Value",
+        "standard": "Size Standard",
+        "code": "Ring Code",
+        "id": "Inner Diameter (ID)",
+        "od": "Outer Diameter (OD)",
+        "cs": "Cross Section (CS)"
+    }
+}

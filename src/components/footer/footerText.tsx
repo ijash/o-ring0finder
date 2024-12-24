@@ -1,28 +1,30 @@
 import React from "react";
 import { names } from "components/common";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 const style = "text-center";
 export const FooterText: React.FC<Props> = (props) => {
+  const { t } = useTranslation("global");
   return (
     <footer>
       <div className={style}>
         <small>
           <p>
-            {
-              "If you found any issues or just to suggest new featues, please post a new issue in this "
-            }
+            {t("footer.issueDesc")}
             <a
               href="https://github.com/ijash/o-ring-finder/issues"
               target="_blank"
               rel="noreferrer"
             >
-              issue page
+              {t("footer.issueLinkName")}
             </a>
           </p>
-          <p>All contributors are welcomed</p>
-          <p>Version {names.version}</p>
+          <p>{t("footer.contribDesc")}</p>
+          <p>
+            {t("footer.version")} {names.version}
+          </p>
         </small>
       </div>
     </footer>

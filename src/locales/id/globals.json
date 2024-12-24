@@ -1,0 +1,83 @@
+{
+    "langSelect": {
+        "display": "Bahasa"
+    },
+    "meta": {
+        "title": "Oring Finder",
+        "description": "Aplikasi pencari ukuran & kode o-ring yang praktis dibuat oleh {{author}}. Tersedia dalam tiga standar umum: AS568, JIS Jepang, dan Common Metric."
+    },
+    "header": {
+        "title": "Oring Finder",
+        "description": "Aplikasi pencari ukuran & kode o-ring yang praktis dibuat oleh"
+    },
+    "inputForms": {
+        "unit": {
+            "label": "Satuan",
+            "placeholder": {
+                "metric": "Metrik(mm)",
+                "imperial": "Imperial(Inci)"
+            }
+        },
+        "code": {
+            "label": "Kode",
+            "placeholder": "Kode Oring"
+        },
+        "minId": {
+            "label": "ID Min",
+            "placeholder": "ID Min"
+        },
+        "maxId": {
+            "label": "ID Maks",
+            "placeholder": "ID Maks"
+        },
+        "minOd": {
+            "label": "OD Min",
+            "placeholder": "OD Min"
+        },
+        "maxOd": {
+            "label": "OD Maks",
+            "placeholder": "OD Maks"
+        },
+        "minCs": {
+            "label": "CS Min",
+            "placeholder": "CS Min"
+        },
+        "maxCs": {
+            "label": "CS Maks",
+            "placeholder": "CS Maks"
+        },
+        "clear": "Hapus filter"
+    },
+    "table": {
+        "infoDesc": {
+            "desc": "Tabel ukuran o-ring menggunakan satuan ",
+            "unit": {
+                "mm": "Milimeter",
+                "inch": "Inci"
+            }
+        },
+        "tableHead": {
+            "standard": "Standar",
+            "code": "Kode",
+            "id": "ID",
+            "od": "OD",
+            "cs": "CS"
+        }
+    },
+    "footer": {
+        "issueDesc": "Jika Anda menemukan masalah atau hanya ingin menyarankan fitur baru, silakan posting isu di ",
+        "issueLinkName": "halaman isu",
+        "contribDesc": "Silahkan jika ingin berkontribusi untuk app ini.",
+        "version": "Versi"
+    },
+    "modal": {
+        "visualization": "Visualisasi",
+        "attribute": "Atribut",
+        "value": "Nilai",
+        "standard": "Standarisasi Ukuran",
+        "code": "Kode O-ring",
+        "id": "Diameter Dalam (ID)",
+        "od": "Diameter Luar (OD)",
+        "cs": "Tebal (CS)"
+    }
+}

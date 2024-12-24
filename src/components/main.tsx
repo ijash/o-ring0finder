@@ -1,4 +1,5 @@
 import {
+  NavBar,
   Title,
   InputSection,
   TableSection,
@@ -12,6 +13,7 @@ export const Main: React.FC<MainProps> = (props) => {
   return (
     <main>
       <FilterContextProvider>
+        <NavBar />
         <Title />
         <div className="container">
           <InputSection />

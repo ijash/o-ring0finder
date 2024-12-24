@@ -22,7 +22,9 @@ export const SelectInput: React.FC<Props> = ({
     <div>
       <select name={name} className={`${style}`} onChange={handleChange}>
         {options.map((o) => (
-          <option value={o.value}>{o.name}</option>
+          <option value={o.value} key={o.name}>
+            {o.name}
+          </option>
         ))}
       </select>
     </div>

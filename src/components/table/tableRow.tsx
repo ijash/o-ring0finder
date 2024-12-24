@@ -34,7 +34,6 @@ export const TableRowsComponent: React.FC<props> = ({ data, filter }) => {
   const { sortBy, sortDirection } = useSort();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<DataRepresentation | null>(null);
-
   const handleShowModal = (rowData: DataRepresentation) => {
     setModalData(rowData);
     setShowModal(true);

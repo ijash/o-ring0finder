@@ -1,5 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { debounce } from "lodash";
+import { useTranslation } from "react-i18next";
 
 import oringSpec from "assets/img/oring-spec.jpg";
 
@@ -16,6 +17,8 @@ import {
 interface props extends StandardElementProps {}
 
 export const InputSection: React.FC<props> = () => {
+  const { t } = useTranslation("global");
+
   const filterContext = useContext(FilterContext);
 
   const updateContextDelay = 897; //milliseconds
@@ -71,33 +74,39 @@ export const InputSection: React.FC<props> = () => {
         </div>
 
         <div className="col-sm-4">
-          <LabelWrapper label="Unit">
+          <LabelWrapper label={t("inputForms.unit.label")}>
             <SelectInput
-              name="Unit"
+              name={t("inputForms.unit.label")}
               options={[
-                { name: "Metric(mm)", value: MeasurementUnit.MM },
-                { name: "Imperial(Inch)", value: MeasurementUnit.INCH },
+                {
+                  name: t("inputForms.unit.placeholder.metric"),
+                  value: MeasurementUnit.MM,
+                },
+                {
+                  name: t("inputForms.unit.placeholder.imperial"),
+                  value: MeasurementUnit.INCH,
+                },
               ]}
               handleChange={handleFilter("unit")}
             ></SelectInput>
           </LabelWrapper>
-          <LabelWrapper label="Code">
+          <LabelWrapper label={t("inputForms.code.label")}>
             <TextInput
-              name="Ring Code"
+              name={t("inputForms.code.placeholder")}
               id="ringcode"
               handleChange={handleFilter("code")}
             ></TextInput>
           </LabelWrapper>
-          <LabelWrapper label="Min ID">
+          <LabelWrapper label={t("inputForms.minId.label")}>
             <NumberInput
-              name="Min ID"
+              name={t("inputForms.minId.placeholder")}
               id="minid"
               handleChange={handleFilter("minId")}
             ></NumberInput>
           </LabelWrapper>
-          <LabelWrapper label="Max ID">
+          <LabelWrapper label={t("inputForms.maxId.label")}>
             <NumberInput
-              name="Max ID"
+              name={t("inputForms.maxId.placeholder")}
               id="maxid"
               handleChange={handleFilter("maxId")}
             ></NumberInput>
@@ -105,30 +114,30 @@ export const InputSection: React.FC<props> = () => {
         </div>
 
         <div className="col-sm-4">
-          <LabelWrapper label="Min OD">
+          <LabelWrapper label={t("inputForms.minOd.label")}>
             <NumberInput
-              name="Min OD"
+              name={t("inputForms.minOd.placeholder")}
               id="minod"
               handleChange={handleFilter("minOd")}
             ></NumberInput>
           </LabelWrapper>
-          <LabelWrapper label="Max OD">
+          <LabelWrapper label={t("inputForms.maxOd.label")}>
             <NumberInput
-              name="Max OD"
+              name={t("inputForms.maxOd.placeholder")}
               id="maxod"
               handleChange={handleFilter("maxOd")}
             ></NumberInput>
           </LabelWrapper>
-          <LabelWrapper label="Min CS">
+          <LabelWrapper label={t("inputForms.minCs.label")}>
             <NumberInput
-              name="Min CS"
+              name={t("inputForms.minCs.placeholder")}
               id="mincs"
               handleChange={handleFilter("minCs")}
             ></NumberInput>
           </LabelWrapper>
-          <LabelWrapper label="Max CS">
+          <LabelWrapper label={t("inputForms.maxCs.label")}>
             <NumberInput
-              name="Max CS"
+              name={t("inputForms.maxCs.placeholder")}
               id="maxcs"
               handleChange={handleFilter("maxCs")}
             ></NumberInput>
@@ -138,7 +147,7 @@ export const InputSection: React.FC<props> = () => {
       <div className="mt-3 col-8 offset-2">
         <ButtonInput
           name="Clear"
-          value="Clear Inputs"
+          value={t("inputForms.clear")}
           handleChange={handleClear}
         />
       </div>

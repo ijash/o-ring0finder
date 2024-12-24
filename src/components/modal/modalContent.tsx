@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { DataRepresentation } from "data";
 import { getElementWidth } from "utils";
 import RingVisualization from "./visualization";
+import { useTranslation } from "react-i18next";
 
 interface ViewportDimensions {
   width: number;
@@ -37,6 +38,8 @@ const useViewportDimensions = (containerId: string) => {
 const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
   ringDimensions,
 }) => {
+  const { t } = useTranslation("global");
+
   const viewportDimensions = useViewportDimensions(CONTAINER_ID);
 
   if (!viewportDimensions.width) {
@@ -46,7 +49,7 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
   return (
     <div id="modalVisualization">
       <div className="text-center" id={CONTAINER_ID}>
-        <h4 className="h3 text-center">Visualization</h4>
+        <h4 className="h3 text-center">{t("modal.visualization")}</h4>
         <RingVisualization
           ringDimensions={ringDimensions}
           dimensions={viewportDimensions}
@@ -54,28 +57,28 @@ const ModalContent: React.FC<{ ringDimensions: DataRepresentation }> = ({
       </div>
 
       <div id="modalAttributes">
-        <h4 className="h3 text-center mt-3">Attributes</h4>
+        <h4 className="h3 text-center mt-3">{t("modal.attribute")}</h4>
         <table className="table table-hover table-striped table-sm table-responsive caption-top border border-dark">
           <thead>
             <tr>
-              <th className="bg-dark text-light">Attribute</th>
-              <th className="bg-dark text-light">Value</th>
+              <th className="bg-dark text-light">{t("modal.attribute")}</th>
+              <th className="bg-dark text-light">{t("modal.value")}</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { label: "Measurement Standard", value: ringDimensions.standard },
+              { label: t("modal.standard"), value: ringDimensions.standard },
               { label: "Ring Code", value: ringDimensions.code },
               {
-                label: "Inner Diameter",
+                label: t("modal.id"),
                 value: `${ringDimensions.id}${ringDimensions.unit}`,
               },
               {
-                label: "Outer Diameter",
+                label: t("modal.od"),
                 value: `${ringDimensions.od}${ringDimensions.unit}`,
               },
               {
-                label: "Cross Section",
+                label: t("modal.cs"),
                 value: `${ringDimensions.cs}${ringDimensions.unit}`,
               },
             ].map(({ label, value }) => (

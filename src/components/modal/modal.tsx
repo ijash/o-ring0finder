@@ -36,7 +36,7 @@ const CustomModal: React.FC<ModalProps> = ({ show, handleClose, rowData }) => {
           <div className="modal-header">
             <h2
               className="modal-title text-center"
-              id="exampleModalLabel"
+              id="itemDetails"
               style={{
                 margin: "0 auto",
               }}
