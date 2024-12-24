@@ -9,25 +9,38 @@
     "name": "Jastria Rahmat",
     "email": "ijash1000@gmail.com"
   },
+  "keywords": [
+    "o-ring",
+    "oring",
+    "pneumatic",
+    "seal",
+    "rubber",
+    "as568",
+    "jis",
+    "nbr",
+    "fkm",
+    "vitton",
+    "nitrile",
+    "airgun",
+    "regulator",
+    "groove"
+  ],
+  "bugs": {
+    "url": "https://github.com/owner/project/issues"
+  },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/lodash": "^4.14.188",
-    "@types/node": "^16.18.3",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
     "bootstrap": "^5.3.3",
     "lodash": "^4.17.21",
     "popper": "^1.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.56.0",
-    "typescript": "^4.8.4",
+    "sass": "^1.83.0",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,7 +49,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -59,26 +71,13 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
-    "@types/react-helmet": "^6.1.6",
-    "gh-pages": "^4.0.0"
-  },
-  "keywords": [
-    "o-ring",
-    "oring",
-    "pneumatic",
-    "seal",
-    "rubber",
-    "as568",
-    "jis",
-    "nbr",
-    "fkm",
-    "vitton",
-    "nitrile",
-    "airgun",
-    "regulator",
-    "groove"
-  ],
-  "bugs": {
-    "url": "https://github.com/owner/project/issues"
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@types/react-helmet": "^6.1.11",
+    "ajv": "^8.17.1",
+    "gh-pages": "^6.2.0"
   }
 }
