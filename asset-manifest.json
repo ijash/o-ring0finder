@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/o-ring-finder/static/css/main.2b2b0496.css",
-    "main.js": "/o-ring-finder/static/js/main.e768321b.js",
+    "main.js": "/o-ring-finder/static/js/main.fde8ffd2.js",
     "index.html": "/o-ring-finder/index.html"
   },
   "entrypoints": [
     "static/css/main.2b2b0496.css",
-    "static/js/main.e768321b.js"
+    "static/js/main.fde8ffd2.js"
   ]
 }
