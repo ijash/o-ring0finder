@@ -1,5 +1,3 @@
-import React from "react";
-
 interface SearchButtonProps {
   name: string;
   url: string;

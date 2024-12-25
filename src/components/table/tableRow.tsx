@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
-import { IData, IDataFilter, Standard, DataRepresentation } from "data";
 import { useSort } from "components/context/SortContext";
 import CustomModal from "components/modal/modal";
+import { DataRepresentation, IData, IDataFilter, Standard } from "data";
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
 
 interface props {
   data: IData[];

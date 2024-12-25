@@ -1,7 +1,7 @@
-import React from "react";
-import ModalContent from "./modalContent";
 import { DataRepresentation } from "data";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import ModalContent from "./modalContent";
 
 interface ModalProps {
   show: boolean;

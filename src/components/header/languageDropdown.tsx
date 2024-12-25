@@ -1,9 +1,8 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
 import { IconLanguage } from "components/common";
+import { useTranslation } from "react-i18next";
 
 export default function LanguageDropdown() {
-  const { i18n, t } = useTranslation("global");
+  const { i18n } = useTranslation("global");
 
   function changeLanguage(lang: string) {
     i18n.changeLanguage(lang);

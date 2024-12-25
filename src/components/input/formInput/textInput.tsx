@@ -1,5 +1,5 @@
-import React from "react";
 import { StandardElementProps, inputStyle } from "components/common";
+import React from "react";
 interface props extends StandardElementProps {
   name: string;
   placeholder?: string;

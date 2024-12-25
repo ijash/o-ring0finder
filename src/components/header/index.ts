@@ -1,3 +1,3 @@
-export * from "./title";
-export * from "./navBar";
 export * from "./languageDropdown";
+export * from "./navBar";
+export * from "./title";

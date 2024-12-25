@@ -1,6 +1,6 @@
-import { DataRepresentation } from "data";
-import iconTokped from "assets/img/icon_tokped.png";
 import iconShopee from "assets/img/icon_shopee.png";
+import iconTokped from "assets/img/icon_tokped.png";
+import { DataRepresentation } from "data";
 import { IFindProductProps } from "./productSearch";
 
 export function getSearchMethods(d: DataRepresentation): IFindProductProps[] {

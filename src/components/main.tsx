@@ -1,10 +1,10 @@
 import {
-  NavBar,
-  Title,
-  InputSection,
-  TableSection,
   FilterContextProvider,
   FooterText,
+  InputSection,
+  NavBar,
+  TableSection,
+  Title,
 } from "components";
 
 interface MainProps {}

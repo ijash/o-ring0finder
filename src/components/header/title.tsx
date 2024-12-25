@@ -1,6 +1,6 @@
+import { names } from "components/common";
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { names } from "components/common";
 import { useTranslation } from "react-i18next";
 
 interface TitleProps {}

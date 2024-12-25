@@ -1,18 +1,18 @@
-import React, { useContext, useCallback } from "react";
 import { debounce } from "lodash";
+import React, { useCallback, useContext } from "react";
 import { useTranslation } from "react-i18next";
 
 import oringSpec from "assets/img/oring-spec.jpg";
 
-import { FilterContext } from "components/context";
 import { LabelWrapper, StandardElementProps } from "components/common";
-import { IDataFilter, MeasurementUnit } from "data";
+import { FilterContext } from "components/context";
 import {
-  SelectInput,
-  NumberInput,
-  TextInput,
   ButtonInput,
+  NumberInput,
+  SelectInput,
+  TextInput,
 } from "components/input/formInput";
+import { IDataFilter, MeasurementUnit } from "data";
 
 interface props extends StandardElementProps {}
 

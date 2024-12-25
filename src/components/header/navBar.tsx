@@ -1,6 +1,5 @@
-import React from "react";
-import LanguageDropdown from "./languageDropdown";
 import { useTranslation } from "react-i18next";
+import LanguageDropdown from "./languageDropdown";
 export function NavBar() {
   const { t } = useTranslation("global");
   const handleScrollToTop = () => {

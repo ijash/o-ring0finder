@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
 import { DataRepresentation } from "data";
-import { getElementWidth } from "utils";
-import RingVisualization from "./visualization";
+import React, { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getElementWidth } from "utils";
 import { ProductSearch } from "./productSearch";
+import RingVisualization from "./visualization";
 interface ViewportDimensions {
   width: number;
   height: number;

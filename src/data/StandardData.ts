@@ -1,9 +1,9 @@
 import {
-  IDataObject,
-  IData,
-  Standard,
-  MeasurementUnit,
   DataRepresentation,
+  IData,
+  IDataObject,
+  MeasurementUnit,
+  Standard,
 } from "./IData";
 
 export class StandardData implements IData {

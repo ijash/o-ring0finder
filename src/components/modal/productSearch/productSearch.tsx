@@ -1,4 +1,3 @@
-import React from "react";
 import { DataRepresentation } from "data";
 import { useTranslation } from "react-i18next";
 import SearchButton from "./searchButton";

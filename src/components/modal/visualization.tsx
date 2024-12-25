@@ -1,5 +1,5 @@
-import React from "react";
 import { DataRepresentation } from "data";
+import React from "react";
 
 interface ViewportDimensions {
   width: number;
