@@ -15,10 +15,10 @@ export default function SearchButton({ ...props }: SearchButtonProps) {
         {props.icon && (
           <img
             src={props.icon}
-            className="me-1"
+            className="me-1 pb-1"
             alt={props.name}
             style={{
-              height: "1.2em",
+              height: "1.6em",
             }}
           />
         )}
