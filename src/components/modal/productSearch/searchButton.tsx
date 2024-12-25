@@ -8,7 +8,6 @@ interface SearchButtonProps {
 }
 const buttonStyle = `btn btn-primary btn-sm ms-2 my-1 shadow-sm`;
 export default function SearchButton({ ...props }: SearchButtonProps) {
-  console.log(props.name);
   return (
     <a href={props.url} target="_blank" rel="noreferrer">
       <button className={buttonStyle}>
