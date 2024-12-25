@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { IconLanguage } from "components/common";
 
 export default function LanguageDropdown() {
   const { i18n, t } = useTranslation("global");
@@ -17,27 +18,29 @@ export default function LanguageDropdown() {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <small>{t("langSelect.display")}</small>
+        <IconLanguage />
+
+        {/* <small>{t("langSelect.display")}</small> */}
       </button>
       <ul className="dropdown-menu dropdown-menu-end ">
         <li>
           <button
             className={`dropdown-item ${
-              i18n.language === "en" ? "active" : ""
+              i18n.language === "en" ? "disabled" : ""
             }`}
             onClick={() => changeLanguage("en")}
           >
-            English
+            🇬🇧 English
           </button>
         </li>
         <li>
           <button
             className={`dropdown-item ${
-              i18n.language === "id" ? "active" : ""
+              i18n.language === "id" ? "disabled" : ""
             }`}
             onClick={() => changeLanguage("id")}
           >
-            Indonesian
+            🇮🇩 Indonesia
           </button>
         </li>
       </ul>
