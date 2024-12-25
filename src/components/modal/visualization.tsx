@@ -1,6 +1,5 @@
 import React from "react";
 import { DataRepresentation } from "data";
-import { remapPercent } from "utils";
 
 interface ViewportDimensions {
   width: number;
@@ -124,17 +123,17 @@ const RingVisualization: React.FC<VisualizationProps> = ({
       },
     };
   };
-  function getCSPosOffset(
-    dimensions: { height: number },
-    outerDiameter: number,
-    innerDiameter: number
-  ): number {
-    const cs = (outerDiameter - innerDiameter) / 2;
-    const range = dimensions.height - outerDiameter;
-    const csRange = remapPercent(30, 100, (Math.min(cs, range) / range) * 100);
-    const result = -csRange * 0.1;
-    return Math.round(result * 100) / 100;
-  }
+  // function getCSPosOffset(
+  //   dimensions: { height: number },
+  //   outerDiameter: number,
+  //   innerDiameter: number
+  // ): number {
+  //   const cs = (outerDiameter - innerDiameter) / 2;
+  //   const range = dimensions.height - outerDiameter;
+  //   const csRange = remapPercent(30, 100, (Math.min(cs, range) / range) * 100);
+  //   const result = -csRange * 0.1;
+  //   return Math.round(result * 100) / 100;
+  // }
 
   const lines = getLineCoordinates();
   //   const labelMargins = (centerX - outerDiameter) * 0.2;

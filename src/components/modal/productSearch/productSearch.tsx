@@ -2,7 +2,6 @@ import React from "react";
 import { DataRepresentation } from "data";
 import { useTranslation } from "react-i18next";
 import SearchButton from "./searchButton";
-import iconTokped from "assets/img/icon_tokped.png";
 import { getSearchMethods } from "./searchMethods";
 
 const SEARCH_CATEGORY = [
