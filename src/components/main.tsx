@@ -6,6 +6,7 @@ import {
   TableSection,
   Title,
 } from "components";
+import GoatCounter from "./common/goatCounter";
 
 interface MainProps {}
 
@@ -21,6 +22,7 @@ export const Main: React.FC<MainProps> = (props) => {
         </div>
         <FooterText />
       </FilterContextProvider>
+      <GoatCounter />
     </main>
   );
 };
