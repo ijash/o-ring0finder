@@ -7,7 +7,7 @@ const GoatCounter: React.FC = () => {
 
       script.src = "//gc.zgo.at/count.js";
       script.async = true;
-      if (process.env.GOAT_COUNTER_ID) {
+      if (process.env.REACT_APP_GOAT_COUNTER_ID) {
         script.dataset.goatcounter = `https://${process.env.REACT_APP_GOAT_COUNTER_ID}.goatcounter.com/count`;
       } else {
         console.error("GOAT_COUNTER_ID is not defined");

@@ -55,9 +55,9 @@
     "dev": "react-scripts start",
     "start": "react-scripts start",
     "obfuscate": "find build/static/js -type f -name 'main.*.js' -print0 | xargs -0 -I {} terser {} --compress --mangle --output {}",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build && npm run obfuscate",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build && npm run obfuscate",
     "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {

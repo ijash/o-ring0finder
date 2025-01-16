@@ -30,7 +30,7 @@ export function getSearchMethods(d: DataRepresentation): IFindProductProps[] {
       id: "sindoSealTokped",
       icon: iconTokped,
       name: "Sindo Seal - Tokopedia",
-      url: `https://www.tokopedia.com/sindoseal/product?q=oring%20${d.code}`,
+      url: `https://www.tokopedia.com/sindoseal?q=oring%20${d.code}`,
       region: "id",
     },
     {
